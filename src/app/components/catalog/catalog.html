@@ -1,0 +1,28 @@
+<section class="catalog">
+  <header class="catalog-header">
+    <h2>Catálogo</h2>
+  </header>
+
+  <div class="grid" role="list">
+    <!-- Loading -->
+    <ng-container *ngIf="loading">
+      <div class="card-item" role="listitem" *ngFor="let n of [1,2,3,4,5,6,7,8]">
+        <app-material-card [loading]="true"></app-material-card>
+      </div>
+    </ng-container>
+
+    <!-- Loaded -->
+    <ng-container *ngIf="!loading">
+      <div class="card-item" role="listitem" *ngFor="let b of books; trackBy: trackById">
+        <app-material-card 
+          [book]="b"
+          (view)="onView($event)"
+          (reserve)="onReserve($event)"
+          (favorite)="onFavorite($event)"
+          (edit)="onEdit($event)"
+          (remove)="onRemove($event)"
+        ></app-material-card>
+      </div>
+    </ng-container>
+  </div>
+</section>

@@ -1,0 +1,104 @@
+/* Host element: permite que app.css .sidebar reserve espacio en layout */
+:host {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  transition: width 180ms ease, min-width 180ms ease;
+}
+
+/* Inner container layout */
+.container {
+  height: 100%;
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: auto;
+}
+
+/* Toggle button */
+.toggle-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  padding: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.toggle-btn img { width: 24px; height: 24px; object-fit: cover; }
+
+/* Search input */
+.container input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+}
+
+/* Buttons */
+.container button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.container button:hover {
+  background: #f2f6ff;
+}
+
+/* visible label text that hides when collapsed */
+.label { display: inline-block; }
+
+/* arrow for submenu buttons */
+.chev { margin-left: auto; font-size: 0.85rem; opacity: 0.7; }
+
+/* Submenus hidden by default */
+.catalog-sub-menu,
+.configuration-sub-menu {
+  display: none;
+  padding-left: 8px;
+  margin-top: 6px;
+  flex-direction: column;
+  gap: 6px;
+}
+.catalog-sub-menu.open,
+.configuration-sub-menu.open { display: flex; }
+
+/* Visual for buttons that have submenu */
+button.has-sub { justify-content: space-between; }
+
+/* Collapsed state: override app.css min-width and flex-basis */
+:host(.collapsed) {
+  width: 64px !important;
+  min-width: 64px !important;
+  max-width: 64px !important;
+  flex-basis: 64px !important;
+}
+
+/* In collapsed state hide labels and center controls */
+:host(.collapsed) .label { display: none; }
+:host(.collapsed) .container button { justify-content: center; padding: 8px; }
+:host(.collapsed) .container input[type="text"] { display: none; }
+:host(.collapsed) .chev { display: none; }
+
+/* Ensure flex children don't overflow the parent */
+:host, .container { min-height: 0; }
+
+/* Small screens: sidebar becomes full-width */
+@media (max-width: 800px) {
+  :host { width: 100% !important; min-width: 100% !important; max-width: 100% !important; }
+  :host(.collapsed) { width: 100% !important; min-width: 100% !important; }
+}

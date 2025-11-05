@@ -1,0 +1,42 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Contenedor principal */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* ocupa toda la ventana */
+}
+
+/* Header: parte superior fija */
+.header {
+  flex: 0 0 15vh; /* 15% de la altura total */
+}
+
+/* Footer: parte inferior fija */
+.footer {
+  flex: 0 0 10vh; /* 10% de la altura total */
+}
+
+/* Cuerpo central */
+.body {
+  flex: 1; /* ocupa el espacio restante (75%) */
+  display: flex;
+  min-height: 0; /* evita problemas de desbordamiento en flex */
+}
+
+/* Sidebar: columna izquierda */
+.sidebar {
+  flex: 0 0 20%; /* 20% del ancho total */
+  min-width: 200px; /* opcional: evita que sea demasiado pequeña */
+  overflow: auto;
+}
+
+/* Contenido principal */
+.content {
+  flex: 1; /* ocupa el resto (80%) */
+  overflow: auto;
+}

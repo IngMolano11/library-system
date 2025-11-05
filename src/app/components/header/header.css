@@ -1,0 +1,104 @@
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%; /* Ocupará el 100% de la altura del contenedor .header */
+  width: 100%;
+  background-color: azure;
+  box-sizing: border-box;
+  padding: 0 24px;
+  gap: 16px;
+}
+
+.left-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.left-content img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.left-content input[type="text"] {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #b0b0b0;
+  font-size: 1rem;
+}
+
+.center-content nav ul {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.center-content nav ul li a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  font-size: 1.05rem;
+  transition: color 0.2s;
+}
+
+.center-content nav ul li a:hover {
+  color: #0b5cff;
+}
+
+.rigth-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rigth-content button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.rigth-content button:nth-child(1) {
+  background: transparent;
+  border: 1px solid #0b5cff;
+  color: #0b5cff;
+}
+
+.rigth-content button:nth-child(1):hover {
+  background: rgba(11, 92, 255, 0.1);
+}
+
+.rigth-content button:nth-child(2) {
+  background: #0b5cff;
+  border: 1px solid #0b5cff;
+  color: white;
+}
+
+.rigth-content button:nth-child(2):hover {
+  background: #0a4fd8;
+}
+
+/* Mantener el botón del perfil circular */
+.rigth-content button:nth-child(3) {
+  background: none;
+  border: none;
+  padding: 6px;
+  border-radius: 50%;
+}
+
+.rigth-content button:nth-child(3):hover {
+  background: #e0eaff;
+}
+
+.rigth-content img {
+  height: 32px;
+  width: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+

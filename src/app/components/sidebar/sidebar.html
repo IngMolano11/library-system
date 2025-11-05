@@ -1,0 +1,88 @@
+<div class="container">
+  <button class="toggle-btn" (click)="toggle()" aria-label="Toggle sidebar" [attr.aria-pressed]="!collapsed">
+    <img src="./imagen.jpg" alt="Icono Para Desplegar o encoger">
+  </button>
+
+  <input type="text" placeholder="Buscar..." />
+
+  <!-- shortcuts -->
+  <div class="shorcuts">
+    <button><span class="label">Nuevo Prestamo</span></button>
+    <button><span class="label">Nueva Devolucion</span></button>
+    <button><span class="label">Nuevo Material</span></button>
+    <button><span class="label">Registrar Socio</span></button>
+  </div>
+
+  <!-- Public options -->
+  <div class="public">
+    <button><span class="label">Inicio</span></button>
+    <button><span class="label">Catálogo</span></button>
+    <button><span class="label">Novedades</span></button>
+    <button><span class="label">Recomendado</span></button>
+    <button><span class="label">Servicios</span></button>
+    <button><span class="label">Eventos/Actividades</span></button>
+    <button><span class="label">Ayuda/FAQ</span></button>
+  </div>
+
+  <!-- Partner -->
+  <div class="partner">
+    <label class="label">Mi espacio</label>
+    <button><span class="label">Mi cuenta</span></button>
+    <button><span class="label">Mis prestamos</span></button>
+    <button><span class="label">Reservas</span></button>
+    <button><span class="label">Multas</span></button>
+    <button><span class="label">Historial</span></button>
+    <button><span class="label">Notificaciones</span></button>
+    <button><span class="label">Renovaciones</span></button>
+  </div>
+
+  <!-- Librarian -->
+  <div class="labrarian">
+    <button><span class="label">Dashboard</span></button>
+    <button><span class="label">Prestamos/Devoluciones</span></button>
+    <button><span class="label">Reservas/Colas</span></button>
+
+    <button class="has-sub" (click)="toggleSubmenu('catalog')" [attr.aria-expanded]="isOpen('catalog')">
+      <span class="label">Catalogo</span>
+      <span class="chev" aria-hidden="true">▸</span>
+    </button>
+    <div class="catalog-sub-menu" [class.open]="isOpen('catalog')">
+      <button><span class="label">Materiales</span></button>
+      <button><span class="label">Copias físicas</span></button>
+      <button><span class="label">Categorias</span></button>
+    </div>
+
+    <button><span class="label">Socios/Usuarios</span></button>
+    <button><span class="label">Multas/pagos</span></button>
+    <button><span class="label">Inventario</span></button>
+    <button><span class="label">Noticaciones del Sistema</span></button>
+    <button><span class="label">Auditoria</span></button>
+  </div>
+
+  <!-- Administration -->
+  <div class="administration">
+    <label class="label">Configuración</label>
+
+    <button class="has-sub" (click)="toggleSubmenu('configuration')" [attr.aria-expanded]="isOpen('configuration')">
+      <span class="label">Configuracion General</span>
+      <span class="chev" aria-hidden="true">▸</span>
+    </button>
+    <div class="configuration-sub-menu" [class.open]="isOpen('configuration')">
+      <button><span class="label">Politicas</span></button>
+      <button><span class="label">Notificaciones</span></button>
+      <button><span class="label">Roles y Permisos</span></button>
+      <button><span class="label">Parametros del Sistema</span></button>
+    </div>
+
+    <button><span class="label">Reportes</span></button>
+    <button><span class="label">Backups</span></button>
+    <button><span class="label">Usuarios del Sistema</span></button>
+  </div>
+
+  <!-- Footer del Sidebar -->
+  <div class="footer">
+    <button><span class="label">Ayuda</span></button>
+    <label class="label">Version 1.0</label>
+    <button><span class="label">Cerrar Sesión</span></button>
+  </div>
+</div>

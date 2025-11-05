@@ -1,0 +1,44 @@
+/* Grid responsivo */
+.catalog {
+  padding: 24px;
+  box-sizing: border-box;
+}
+.catalog-header {
+  margin-bottom: 24px;
+}
+
+/* Grid fluido */
+.grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+/* Responsive grid */
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Asegurar que cada card ocupe el ancho disponible */
+.grid > app-material-card {
+  width: 100%;
+  display: block;
+}
+
+.card-item {
+  width: 100%;
+}

@@ -1,0 +1,45 @@
+<!-- Variante skeleton -->
+<article class="card" role="article" [attr.aria-busy]="loading">
+  <ng-container *ngIf="loading; else content">
+    <div class="skeleton cover"></div>
+    <div class="skeleton title"></div>
+    <div class="skeleton meta"></div>
+    <div class="skeleton desc"></div>
+    <div class="skeleton actions"></div>
+  </ng-container>
+
+  <ng-template #content>
+    <div class="cover-wrap">
+      <img
+        class="cover-img"
+        [src]="book?.cover || './imagen.jpg'"
+        [alt]="book?.title"
+        width="160"
+        height="220"
+      />
+      <span class="badge" [class]="book?.status">{{book?.status}}</span>
+    </div>
+
+    <div class="body">
+      <h3 class="title">{{book?.title}}</h3>
+      <p class="authors">{{book && book.authors ? book.authors.join(', ') : 'No authors available'}}</p>
+      <p class="meta">
+        {{book?.publisher}} · {{book?.year}} · {{book?.language}}
+      </p>
+      <p class="desc">{{book?.shortDescription}}</p>
+    </div>
+
+    <div class="footer-line">
+      <div class="availability">
+        {{book?.availableCopies}} de {{book?.totalCopies}} disponibles
+      </div>
+      <div class="actions">
+        <button class="btn primary" (click)="onView()">Ver detalle</button>
+        <button class="btn secondary" (click)="onReserve()">
+          {{book?.status === 'available' ? 'Reservar' : 'Solicitar préstamo'}}
+        </button>
+        <button class="icon-btn" (click)="onFavorite()">★</button>
+      </div>
+    </div>
+  </ng-template>
+</article>
